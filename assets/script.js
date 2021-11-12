@@ -7,10 +7,11 @@
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+console.log("button variable test");
 
 // Write password to the #password input
 function writePassword() {
-  userPrompt();
+  console.log("1111 writePassword function invoked");
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
