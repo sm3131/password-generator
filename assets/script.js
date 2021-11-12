@@ -11,7 +11,7 @@ console.log("button variable test");
 
 // Write password to the #password input
 function writePassword() {
-  console.log("1111 writePassword function invoked");
+  userPrompt();  
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -21,19 +21,24 @@ function writePassword() {
 
 function userPrompt() {
   passwordLength = window.prompt ("How many characters do you want your password to contain?");
+  console.log(passwordLength)
 
   lowerCase = window.confirm ("Do you want your password to contain lower case characters?");
+  console.log("lowerCase: " + lowerCase);
 
   upperCase = window.confirm ("Do you want your password to contain upper case characters?");
+ console.log("upperCase: " + upperCase);
 
   numeric = window.confirm ("Do you want your password to contain numbers?");
+  console.log("numeric: " + numeric);
 
   specialCharacters = window.confirm ("Do you want your password to contain special characters?");
+  console.log("special: " + specialCharacters);
 }
 
-function generatePassword() {
-  console.log()
-}
+// function generatePassword() {
+//   console.log()
+// }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
