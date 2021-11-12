@@ -31,23 +31,30 @@ function characterLength() {
 }
 
   function characterTypes() {
+
+  charTypePrompt = window.alert("Please select at least one character type to include in your password.");
+  
   lowerCase = window.confirm ("Do you want your password to contain lower case characters?");
   console.log("lowerCase: " + lowerCase);
 
   upperCase = window.confirm ("Do you want your password to contain upper case characters?");
- console.log("upperCase: " + upperCase);
+  console.log("upperCase: " + upperCase);
 
   numeric = window.confirm ("Do you want your password to contain numbers?");
   console.log("numeric: " + numeric);
 
   specialCharacters = window.confirm ("Do you want your password to contain special characters?");
   console.log("special: " + specialCharacters);
+  
+  if ((lowerCase || upperCase || numeric || specialCharacters) === false) {
+  return characterTypes();
+  }
   }
 
 
-function generatePassword() {
+// function generatePassword() {
   
-}
+// }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
