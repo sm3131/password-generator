@@ -19,5 +19,21 @@ function writePassword() {
 
 }
 
+function userPrompt() {
+  passwordLength = window.prompt ("How many characters do you want your password to contain?");
+
+  lowerCase = window.confirm ("Do you want your password to contain lower case characters?");
+
+  upperCase = window.confirm ("Do you want your password to contain upper case characters?");
+
+  numeric = window.confirm ("Do you want your password to contain numbers?");
+
+  specialCharacters = window.confirm ("Do you want your password to contain special characters?");
+}
+
+function generatePassword() {
+  console.log()
+}
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
