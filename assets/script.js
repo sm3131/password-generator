@@ -11,7 +11,8 @@ console.log("button variable test");
 
 // Write password to the #password input
 function writePassword() {
-  userPrompt();  
+  characterLength();  
+  characterTypes();
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -19,10 +20,17 @@ function writePassword() {
 
 }
 
-function userPrompt() {
+function characterLength() {
   passwordLength = window.prompt ("How many characters do you want your password to contain?");
   console.log(passwordLength)
 
+  if (passwordLength < 8 || passwordLength > 128) {
+    window.alert ("Please enter a character length between 8 and 128.");
+    return characterLength();
+  }
+}
+
+  function characterTypes() {
   lowerCase = window.confirm ("Do you want your password to contain lower case characters?");
   console.log("lowerCase: " + lowerCase);
 
@@ -34,11 +42,12 @@ function userPrompt() {
 
   specialCharacters = window.confirm ("Do you want your password to contain special characters?");
   console.log("special: " + specialCharacters);
-}
+  }
 
-// function generatePassword() {
-//   console.log()
-// }
+
+function generatePassword() {
+  
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
