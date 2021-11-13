@@ -1,13 +1,20 @@
 // Assignment code here
 // window.prompt for password length:
-  // store length 
+  // store length in variable passwordLength = window.prompt response between 8-128
 // separate confirm prompts for lowercase, uppercase, numeric, and/or special characters
-  // store options
-// create global word banks (var wor)
+  // store options:
+  // lowerCase = response yes/No
+  // upperCase = response yes/no
+  // numbers = response yes/no
+  // specialCharacters = response yes/no
+
+// while loop for character length
+// while (i = 0, i <= characterLength, i++)
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
-console.log("button variable test");
 
 // Write password to the #password input
 function writePassword() {
@@ -32,7 +39,7 @@ function characterLength() {
 
   function characterTypes() {
 
-  charTypePrompt = window.alert("Please select at least one character type to include in your password.");
+  var charTypePrompt = window.alert("Please select at least one character type to include in your password.");
   
   lowerCase = window.confirm ("Do you want your password to contain lower case characters?");
   console.log("lowerCase: " + lowerCase);
@@ -51,10 +58,47 @@ function characterLength() {
   }
   }
 
-
-// function generatePassword() {
-  
-// }
+function generatePassword() {
+  while(i = 1, i <= passwordLength, i++) {
+    getRandomNumber(1,4);
+  }
+}
+  var getRandomNumber = function(min, max) {
+    characterValue = Math.floor(Math.random() * (max - min + 1) + min);
+    console.log(characterValue);
+  switch (characterValue) {
+    case 1:
+      if (lowerCase) {
+        lowerCase = generateLowerCase();
+        password = password + lowerCase
+      }
+      else {
+        return getRandomNumber();
+      }
+    case 2:
+      if (upperCase) {
+        upperCase = generateUpperCase();
+        password = password + upperCase
+      }
+      else {
+        return getRandomNumber();
+      }
+    case 3:
+      if (numeric) {
+        numeric = generateNumeric();
+      }
+      else {
+        return getRandomNumber();
+      }
+    case 4:
+      if (specialCharacters)
+        specialCharacters = generateSpecialCharacter();
+        password = password + specialCharacter
+      } 
+      else {
+        return getRandomNumber();
+      }
+    c
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
