@@ -68,7 +68,6 @@ function generatePassword() {
           lowerCase = generateLowerCase();
           pword = pword + lowerCase
           console.log(pword);
-          debugger;
         }
         else {
           return getRandomNumber();
@@ -83,7 +82,7 @@ function generatePassword() {
           }
         case 3:
           if (numeric) {
-            numeric = generateNumeric();
+            numeric = generateNumeric(0,9);
             password = password + numeric
           }
           else {
@@ -94,11 +93,11 @@ function generatePassword() {
             specialCharacters = generateSpecialCharacter();
             password = password + specialCharacter
           } 
-          // else {
+          else {
             return getRandomNumber();
           }
       }
-      
+
   var getRandomNumber = function(min, max) {
     characterValue = Math.floor(Math.random() * (max - min + 1) + min);
     console.log(characterValue);
@@ -109,8 +108,21 @@ function generatePassword() {
 function generateLowerCase() {
   const lowerCaseAlphabet = "abcdefghijklmnopqrstuvwxyz"
    return lowerCaseAlphabet[Math.floor(Math.random() * lowerCaseAlphabet.length)];
-
   }
+
+function generateUpperCase() {
+  const upperCaseAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  return upperCaseAlphabet[Math.floor(Math.random() * upperCaseAlphabet.length)];
+}
+
+function generateNumeric(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function generateSpecialCharacter() {
+  const specialCharacter = "~!@#$%^&*_-\/?<>"
+  return specialCharacter[Math.floor(Math.random() * specialCharacter.length)];
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
