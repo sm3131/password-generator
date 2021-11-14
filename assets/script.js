@@ -1,20 +1,27 @@
 // Assignment code here
 
-var pword = ""
+//var pword = ""
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
 var textarea = document.querySelector("password");
 generateBtn.addEventListener("click", writePassword);
+var clearBtn = document.querySelector("#clear");
+clearBtn.addEventListener("click", clearPassword);
 
 
 // Write password to the #password input
 function writePassword() {
   characterLength();  
   characterTypes();
+  pword = "";
   pword = generatePassword();
   document.getElementById('password').value = pword;
+}
+
+function clearPassword() {
+  document.getElementById('password').value = "";
 }
 
 function characterLength() {
@@ -23,7 +30,6 @@ function characterLength() {
 
   if (passwordLength < 8 || passwordLength > 128) {
     window.alert ("Please enter a character length between 8 and 128.");
-    return characterLength();
   }
 }
 
