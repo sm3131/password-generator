@@ -1,17 +1,4 @@
 // Assignment code here
-// window.prompt for password length:
-  // store length in variable passwordLength = window.prompt response between 8-128
-// separate confirm prompts for lowercase, uppercase, numeric, and/or special characters
-  // store options:
-  // lowerCase = response yes/No
-  // upperCase = response yes/no
-  // numbers = response yes/no
-  // specialCharacters = response yes/no
-
-// while loop for character length
-// while (i = 0, i <= characterLength, i++)
-
-
 
 var pword = ""
 
@@ -19,13 +6,8 @@ var pword = ""
 var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
 var textarea = document.querySelector("password");
-generateBtn.addEventListener("click", refreshTextArea);
 generateBtn.addEventListener("click", writePassword);
 
-// reset textarea to blank
-function refreshTextArea() {
-  document.getElementById('password').value = ('');
-}
 
 // Write password to the #password input
 function writePassword() {
