@@ -1,13 +1,13 @@
-// Assignment code here
-
-//var pword = ""
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
-// Add event listener to generate button
+// Get references to the #password element
 var textarea = document.querySelector("password");
+// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+// Get references to the #clear element
 var clearBtn = document.querySelector("#clear");
+// Add event listener to clear button
 clearBtn.addEventListener("click", clearPassword);
 
 
@@ -24,6 +24,7 @@ function clearPassword() {
   document.getElementById('password').value = "";
 }
 
+// asking user for their desired password character length (must be between 8 and 128)
 function characterLength() {
   passwordLength = window.prompt("How many characters do you want your password to contain?");
   console.log(passwordLength)
@@ -34,6 +35,7 @@ function characterLength() {
   }
 }
 
+// asking user for what character types they would like their password to contain
 function characterTypes() {
 
   var charTypePrompt = window.alert("Please select at least one character type to include in your password.");
@@ -55,9 +57,11 @@ function characterTypes() {
   }
 }
 
+// creating a for loop to create a password of the selected character length
 function generatePassword() {
   for (i = 1; i <= passwordLength; i++) {
     notValid = 1
+    // running a switch conditional in a while loop to randomly select which character type to include for each password character until the desired character length password is created
     while (notValid == 1) {
       getRandomNumber(1, 4);
       switch (characterValue) {
@@ -115,25 +119,26 @@ function generatePassword() {
   return pword
 }
 
+// random number generate to pick which switch case to include for a specific password character
 var getRandomNumber = function (min, max) {
   characterValue = Math.floor(Math.random() * (max - min + 1) + min);
   console.log(characterValue);
 }
-
+// generating a random lower case letter
 function generateLowerCase() {
   const lowerCaseAlphabet = "abcdefghijklmnopqrstuvwxyz"
   return lowerCaseAlphabet[Math.floor(Math.random() * lowerCaseAlphabet.length)];
 }
-
+// generating a random upper case letter
 function generateUpperCase() {
   const upperCaseAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   return upperCaseAlphabet[Math.floor(Math.random() * upperCaseAlphabet.length)];
 }
-
+//generating a random number
 function generateNumeric(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
+//generating a random special character
 function generateSpecialCharacter() {
   const specialCharacter = "~!@#$%^&*_-\/?<>"
   return specialCharacter[Math.floor(Math.random() * specialCharacter.length)];
