@@ -21,7 +21,7 @@ function writePassword() {
   characterLength();  
   characterTypes();
   pword = generatePassword();
-  pword = document.querySelector("#password");
+  document.getElementById('password').value = pword;
 
 
 }
