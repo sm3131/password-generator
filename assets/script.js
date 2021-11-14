@@ -13,8 +13,19 @@
 
 
 
+var pword = ""
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+// Add event listener to generate button
+var textarea = document.querySelector("password");
+generateBtn.addEventListener("click", refreshTextArea);
+generateBtn.addEventListener("click", writePassword);
+
+// reset textarea to blank
+function refreshTextArea() {
+  document.getElementById('password').value = ('');
+}
 
 // Write password to the #password input
 function writePassword() {
@@ -22,8 +33,6 @@ function writePassword() {
   characterTypes();
   pword = generatePassword();
   document.getElementById('password').value = pword;
-
-
 }
 
 function characterLength() {
@@ -56,12 +65,11 @@ function characterLength() {
   return characterTypes();
   }
   }
-var pword = ""
 
 function generatePassword() {
   for (i = 1; i <= passwordLength; i++) {
     notValid = 1
-    while (notValid = 1) {
+    while (notValid == 1) {
     getRandomNumber(1,4);
     switch (characterValue) {
       case 1:
@@ -114,7 +122,8 @@ function generatePassword() {
             }
         }
       }
-      return pword
+    }
+    return pword
 }
        
           
@@ -148,5 +157,3 @@ function generateSpecialCharacter() {
   return specialCharacter[Math.floor(Math.random() * specialCharacter.length)];
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
