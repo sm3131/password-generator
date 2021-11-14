@@ -29,7 +29,7 @@ function characterLength() {
   passwordLength = window.prompt("How many characters do you want your password to contain?");
   console.log(passwordLength)
 
-  if (passwordLength < 8 || passwordLength > 128) {
+  if (!(passwordLength >= 8 && passwordLength <= 128)) {
     window.alert("Please enter a character length between 8 and 128.");
     characterLength();
   }
