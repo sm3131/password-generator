@@ -57,48 +57,60 @@ function characterLength() {
   return characterTypes();
   }
   }
+var pword = ""
 
 function generatePassword() {
   while(i = 1, i <= passwordLength, i++) {
     getRandomNumber(1,4);
-  }
-}
+    switch (characterValue) {
+      case 1:
+        if (lowerCase) {
+          lowerCase = generateLowerCase();
+          pword = pword + lowerCase
+          console.log(pword);
+          debugger;
+        }
+        else {
+          return getRandomNumber();
+        }
+        case 2:
+          if (upperCase) {
+            upperCase = generateUpperCase();
+            password = password + upperCase
+          }
+          else {
+            return getRandomNumber();
+          }
+        case 3:
+          if (numeric) {
+            numeric = generateNumeric();
+            password = password + numeric
+          }
+          else {
+            return getRandomNumber();
+          }
+        case 4:
+          if (specialCharacters)
+            specialCharacters = generateSpecialCharacter();
+            password = password + specialCharacter
+          } 
+          // else {
+            return getRandomNumber();
+          }
+      }
+      
   var getRandomNumber = function(min, max) {
     characterValue = Math.floor(Math.random() * (max - min + 1) + min);
     console.log(characterValue);
-  switch (characterValue) {
-    case 1:
-      if (lowerCase) {
-        lowerCase = generateLowerCase();
-        password = password + lowerCase
-      }
-      else {
-        return getRandomNumber();
-      }
-    case 2:
-      if (upperCase) {
-        upperCase = generateUpperCase();
-        password = password + upperCase
-      }
-      else {
-        return getRandomNumber();
-      }
-    case 3:
-      if (numeric) {
-        numeric = generateNumeric();
-      }
-      else {
-        return getRandomNumber();
-      }
-    case 4:
-      if (specialCharacters)
-        specialCharacters = generateSpecialCharacter();
-        password = password + specialCharacter
-      } 
-      else {
-        return getRandomNumber();
-      }
-    c
+
+
+  }
+
+function generateLowerCase() {
+  const lowerCaseAlphabet = "abcdefghijklmnopqrstuvwxyz"
+   return lowerCaseAlphabet[Math.floor(Math.random() * lowerCaseAlphabet.length)];
+
+  }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
