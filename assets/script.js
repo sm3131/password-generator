@@ -68,6 +68,7 @@ function generatePassword() {
           lowerCase = generateLowerCase();
           pword = pword + lowerCase
           console.log(pword);
+          break;
         }
         else {
           return getRandomNumber();
@@ -75,7 +76,9 @@ function generatePassword() {
         case 2:
           if (upperCase) {
             upperCase = generateUpperCase();
-            password = password + upperCase
+            pword = pword + upperCase;
+            console.log(pword);
+            break;
           }
           else {
             return getRandomNumber();
@@ -83,20 +86,30 @@ function generatePassword() {
         case 3:
           if (numeric) {
             numeric = generateNumeric(0,9);
-            password = password + numeric
+            pword = pword + numeric;
+            console.log(pword);
+            break;
           }
           else {
             return getRandomNumber();
           }
-        case 4:
-          if (specialCharacters)
-            specialCharacters = generateSpecialCharacter();
-            password = password + specialCharacter
-          } 
-          else {
-            return getRandomNumber();
-          }
+          debugger;
+        }
       }
+}
+        // case 4:
+        //   if (specialCharacters)
+        //     specialCharacters = generateSpecialCharacter();
+        //     pword = pword + specialCharacter;
+        //     console.log(pword);
+        //   }
+        //   else {
+        //     return getRandomNumber();
+        //   }
+          
+
+
+      
 
   var getRandomNumber = function(min, max) {
     characterValue = Math.floor(Math.random() * (max - min + 1) + min);
