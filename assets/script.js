@@ -20,10 +20,9 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   characterLength();  
   characterTypes();
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  pword = generatePassword();
+  pword = document.querySelector("#password");
 
-  passwordText.value = password;
 
 }
 
@@ -60,7 +59,7 @@ function characterLength() {
 var pword = ""
 
 function generatePassword() {
-  while(i = 1, i <= passwordLength, i++) {
+  for (i = 1; i <= passwordLength; i++) {
     getRandomNumber(1,4);
     switch (characterValue) {
       case 1:
@@ -93,19 +92,22 @@ function generatePassword() {
           else {
             return getRandomNumber();
           }
-          debugger;
+          case 4:
+            if (specialCharacters) {
+              specialCharacters = generateSpecialCharacter();
+              pword = pword + specialCharacters;
+              console.log(pword);
+              break;
+            }
+            else {
+              return getRandomNumber();
+            }
         }
       }
+      debugger;
+      return pword
 }
-        // case 4:
-        //   if (specialCharacters)
-        //     specialCharacters = generateSpecialCharacter();
-        //     pword = pword + specialCharacter;
-        //     console.log(pword);
-        //   }
-        //   else {
-        //     return getRandomNumber();
-        //   }
+       
           
 
 
