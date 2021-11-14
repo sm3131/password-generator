@@ -60,51 +60,60 @@ var pword = ""
 
 function generatePassword() {
   for (i = 1; i <= passwordLength; i++) {
+    notValid = 1
+    while (notValid = 1) {
     getRandomNumber(1,4);
     switch (characterValue) {
       case 1:
         if (lowerCase) {
           lowerCase = generateLowerCase();
           pword = pword + lowerCase
+          notValid = 0;
           console.log(pword);
           break;
         }
         else {
-          return getRandomNumber();
+          notValid = 1;
+          break;
         }
         case 2:
           if (upperCase) {
             upperCase = generateUpperCase();
             pword = pword + upperCase;
+            notValid = 0;
             console.log(pword);
             break;
           }
           else {
-            return getRandomNumber();
+            notValid = 1;
+            break; 
           }
         case 3:
           if (numeric) {
             numeric = generateNumeric(0,9);
             pword = pword + numeric;
+            notValid = 0;
             console.log(pword);
             break;
           }
           else {
-            return getRandomNumber();
+            notValid = 1;
+            break;
           }
           case 4:
             if (specialCharacters) {
               specialCharacters = generateSpecialCharacter();
               pword = pword + specialCharacters;
+              notValid = 0;
               console.log(pword);
               break;
             }
             else {
-              return getRandomNumber();
+              notValid = 1;
+              break;
             }
         }
       }
-      debugger;
       return pword
 }
        
