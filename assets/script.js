@@ -1,17 +1,17 @@
 
-// Get references to the #generate element
+// Get references to the #generate button element 
 var generateBtn = document.querySelector("#generate");
-// Get references to the #password element
+// Get references to the #password textarea element
 var textarea = document.querySelector("password");
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-// Get references to the #clear element
+// Get references to the #clear button element
 var clearBtn = document.querySelector("#clear");
 // Add event listener to clear button
 clearBtn.addEventListener("click", clearPassword);
 
 
-// Write password to the #password input
+// Write password function; calling other password generation functions
 function writePassword() {
   characterLength();
   characterTypes();
@@ -57,11 +57,11 @@ function characterTypes() {
   }
 }
 
-// creating a for loop to create a password of the selected character length
+// creating a for loop to generate a password of the selected character length
 function generatePassword() {
   for (i = 1; i <= passwordLength; i++) {
     notValid = 1
-    // running a switch conditional in a while loop to randomly select which character type to include for each password character until the desired character length password is created
+    // randomly select which character type to include for each password character until the desired password length is created
     while (notValid == 1) {
       getRandomNumber(1, 4);
       switch (characterValue) {
@@ -119,7 +119,7 @@ function generatePassword() {
   return pword
 }
 
-// random number generate to pick which switch case to include for a specific password character
+// random number generator to pick which switch case to include for a specific password character
 var getRandomNumber = function (min, max) {
   characterValue = Math.floor(Math.random() * (max - min + 1) + min);
   console.log(characterValue);
