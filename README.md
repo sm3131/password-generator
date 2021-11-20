@@ -9,7 +9,7 @@ The purpose of this project was to design a program that randomly generates a pa
 - [Preview](#preview)
 - [Functionality](#functionality)
 - [Password Generator Link](#password-generator-link)
-- [Credit / Contribution](#credit/contribution)
+- [Credit / Contribution](#credit--contribution)
 
 # Built With
 - HTML
@@ -40,6 +40,8 @@ The user then has two options the first is to clear the generated password from 
 # Password Generator Link
 
 The link to the password generator program is provided below:
+<br>
+https://sm3131.github.io/password-generator/
 
 # Credit / Contribution
 
