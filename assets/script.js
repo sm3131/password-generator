@@ -3,15 +3,15 @@
 var generateBtn = document.querySelector("#generate");
 // Get references to the #password textarea element
 var textarea = document.querySelector("password");
-// Add event listener to generate button
+// Add event listener to generate password button
 generateBtn.addEventListener("click", writePassword);
 // Get references to the #clear button element
 var clearBtn = document.querySelector("#clear");
-// Add event listener to clear button
+// Add event listener to clear password button
 clearBtn.addEventListener("click", clearPassword);
 
 
-// Write password function; calling other password generation functions
+// Function calling other password generation functions
 function writePassword() {
   characterLength();
   characterTypes();
@@ -24,10 +24,9 @@ function clearPassword() {
   document.getElementById('password').value = "";
 }
 
-// asking user for their desired password character length (must be between 8 and 128)
+// Function asking user for their desired password character length (must be between 8 and 128)
 function characterLength() {
-  passwordLength = window.prompt("How many characters do you want your password to contain?");
-  console.log(passwordLength)
+  passwordLength = window.prompt("How many characters do you want your password to contain? Must enter a number between 8 and 128 characters.");
 
   if (!(passwordLength >= 8 && passwordLength <= 128)) {
     window.alert("Please enter a character length between 8 and 128.");
@@ -35,42 +34,38 @@ function characterLength() {
   }
 }
 
-// asking user for what character types they would like their password to contain
+// Function asking user for what character types they would like their password to contain
 function characterTypes() {
 
-  var charTypePrompt = window.alert("Please select at least one character type to include in your password.");
+  charTypePrompt = window.alert("Please select at least one character type to include in your password.");
 
   lowerCase = window.confirm("Do you want your password to contain lower case characters?");
-  console.log("lowerCase: " + lowerCase);
 
   upperCase = window.confirm("Do you want your password to contain upper case characters?");
-  console.log("upperCase: " + upperCase);
 
   numeric = window.confirm("Do you want your password to contain numbers?");
-  console.log("numeric: " + numeric);
 
   specialCharacters = window.confirm("Do you want your password to contain special characters?");
-  console.log("special: " + specialCharacters);
 
   if ((lowerCase || upperCase || numeric || specialCharacters) === false) {
     characterTypes();
   }
 }
 
-// creating a for loop to generate a password of the selected character length
+// Creating a for loop to generate a password of the selected character length
 function generatePassword() {
   for (i = 1; i <= passwordLength; i++) {
     notValid = 1
-    // randomly select which character type to include for each password character until the desired password length is created
+    // Randomly select which character type to include for each password character until the desired password length is created
     while (notValid == 1) {
       getRandomNumber(1, 4);
       switch (characterValue) {
         case 1:
-          if (lowerCase) {
-            lowerCase = generateLowerCase();
-            pword = pword + lowerCase
+          if (lowerCase === true) {
+            console.log(typeof lowerCase);
+            lowerCaseChar = generateLowerCase();
+            pword = pword + lowerCaseChar;
             notValid = 0;
-            console.log(pword);
             break;
           }
           else {
@@ -78,11 +73,10 @@ function generatePassword() {
             break;
           }
         case 2:
-          if (upperCase) {
-            upperCase = generateUpperCase();
-            pword = pword + upperCase;
+          if (upperCase === true) {
+            upperCaseChar = generateUpperCase();
+            pword = pword + upperCaseChar;
             notValid = 0;
-            console.log(pword);
             break;
           }
           else {
@@ -90,11 +84,10 @@ function generatePassword() {
             break;
           }
         case 3:
-          if (numeric) {
-            number = generateNumeric(0, 9);
-            pword = pword + number;
+          if (numeric === true) {
+            numberChar = generateNumeric(0, 9);
+            pword = pword + numberChar;
             notValid = 0;
-            console.log(pword);
             break;
           }
           else {
@@ -102,11 +95,10 @@ function generatePassword() {
             break;
           }
         case 4:
-          if (specialCharacters) {
-            specialCharacters = generateSpecialCharacter();
-            pword = pword + specialCharacters;
+          if (specialCharacters === true) {
+            specialCharactersChar = generateSpecialCharacter();
+            pword = pword + specialCharactersChar;
             notValid = 0;
-            console.log(pword);
             break;
           }
           else {
@@ -119,26 +111,25 @@ function generatePassword() {
   return pword
 }
 
-// random number generator to pick which switch case to include for a specific password character
+// Random number generator to pick which switch case to include for a specific password character
 var getRandomNumber = function (min, max) {
   characterValue = Math.floor(Math.random() * (max - min + 1) + min);
-  console.log(characterValue);
 }
-// generating a random lower case letter
+// Generating a random lower case letter
 function generateLowerCase() {
   const lowerCaseAlphabet = "abcdefghijklmnopqrstuvwxyz"
   return lowerCaseAlphabet[Math.floor(Math.random() * lowerCaseAlphabet.length)];
 }
-// generating a random upper case letter
+// Generating a random upper case letter
 function generateUpperCase() {
   const upperCaseAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   return upperCaseAlphabet[Math.floor(Math.random() * upperCaseAlphabet.length)];
 }
-//generating a random number
+// Generating a random number
 function generateNumeric(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-//generating a random special character
+// Generating a random special character
 function generateSpecialCharacter() {
   const specialCharacter = "~!@#$%^&*_-\/?<>"
   return specialCharacter[Math.floor(Math.random() * specialCharacter.length)];
