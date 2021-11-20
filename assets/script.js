@@ -62,7 +62,6 @@ function generatePassword() {
       switch (characterValue) {
         case 1:
           if (lowerCase === true) {
-            console.log(typeof lowerCase);
             lowerCaseChar = generateLowerCase();
             pword = pword + lowerCaseChar;
             notValid = 0;
